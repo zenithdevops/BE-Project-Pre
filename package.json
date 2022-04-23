@@ -1,0 +1,40 @@
+{
+  "name": "be_project",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "dummy-component": "git+https://github.com/recraftrelic/dummy-react-npm-module.git",
+    "edit-json-file": "^1.7.0",
+    "firebase": "^9.6.11",
+    "moment": "^2.29.3",
+    "python-shell": "^3.0.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@react-pdf/renderer": "^2.1.1",
+    "react-loading-delay": "^1.0.8"
+  }
+}
