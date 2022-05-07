@@ -1,24 +1,32 @@
-import React, { useState, useRef } from "react";
+import React, {useState, useRef, Component} from "react";
 import { database } from "../firebase";
 import { ref, onValue } from "firebase/database";
 import LoadingDelay from "react-loading-delay";
 import RR from "../jsonData/Patient";
+import GenReport from "./GetReportCard";
 
 function getAssessment() {
-  let m = window.location.pathname;
-  let pdf_google_link = m.split("=");
-  let disease = pdf_google_link[1].split("&");
+  let m = window.location.href;
+  let param = m.split("?")
+  let covidp = param[1]
+  let thop = param[2]
+  let normp = param[3]
+
+  let covids = covidp.split("=")
+  let thops = thop.split("=")
+  let norms = normp.split("=")
+
   let arr = [];
-  for (let i = 0; i < 3; i++) {
-    let m = disease[i].split(":");
-    arr[i] = m[1];
-  }
+  arr[0] = covids[1]
+  arr[1] = thops[1]
+  arr[2] = norms[1]
+
   return arr;
 }
 function generateReport(emilID, patientID, arr, hospital_name, doc_name) {
   let emailArr = emilID.split("@");
-  let emailD = emailArr[0];
-  let PID = patientID + "_" + emailD;
+  let emailID = emailArr[0];
+  let PID = patientID + "_" + emailID;
   let patient_name;
   let address;
   let age;
@@ -39,28 +47,22 @@ function generateReport(emilID, patientID, arr, hospital_name, doc_name) {
     loading = false;
   });
 
-  setJ();
+  alert(patient_name)
 
-  function setJ() {
-    RR(
-      patientID,
-      patient_name,
-      emailD,
-      contact,
-      address,
-      hospital_name,
-      doc_name,
-      sex,
-      bloodgroup,
-      arr[0],
-      arr[1],
-      arr[2]
-    );
-  }
+  let cov = arr[0]
+  let tho = arr[1]
+  let nor = arr[2]
+
+  window.location.href ="http://localhost:3000/patientReport?"+emailID+"?"+patientID+"?"+hospital_name+"?"+doc_name+"?"+cov+"?"+tho+"?"+nor
+
+  // return(
+  //     <GenReport patient_name ={patient_name} contact ={contact} address={address} sex={sex} age={age} bloodgroup={bloodgroup} emailID={emailID} patientID={patientID} hospital_name={hospital_name} doc_name={doc_name} covid={arr[0]} thorax={arr[1]} normal={arr[2]} />
+  // );
+
 }
 
 function openStreamlit() {
-  let newPageUrl = "http://localhost:8502/";
+  let newPageUrl = "http://localhost:8501/";
   window.open(newPageUrl, "_blank");
 }
 
@@ -73,13 +75,19 @@ function addPatient() {}
 let loading = true;
 
 function HospitalDashboard() {
-  const nameForm = useRef(null);
+  //let m = window.location.href;
+  //let param = m.split("?");
+  //let paraemail = param[1]
+  //let emailD = paraemail.split("=")
+  //let email = emailD[1]
+
+
   let hospital_name = useState("");
   let address = useState("");
   let doc_name = useState("");
   let doc_id = useState("");
   const doctors = useState([]);
-  const email = "nobel_nrca@gmail.com";
+  const email = "nobel_nrca@gmail.com"; // arg#1
   const mail = email.split("@");
   const starCountRef = ref(database, "hospitalData/" + mail[0]);
   onValue(starCountRef, (snapshot) => {
@@ -90,31 +98,34 @@ function HospitalDashboard() {
     doctors["docID"] = field["doctors"]["doc1"]["docID"];
     doc_name = doctors["name"];
     doc_id = doctors["docID"];
-    loading = false;
+    loading = false;K
   });
-  const doc = doc_name;
-  const hos = hospital_name;
+
   let link = window.location.href;
 
   let emailID;
   let patientID;
+  let doc
+  let hos
   const handleClickEvent = () => {
-    const form = nameForm.current;
-    alert(`${form["email"].value} ${form["pid"].value}`);
-    emailID = form["email"].value;
-    patientID = form["pid"].value;
+    emailID = document.getElementById("email").value
+    patientID = document.getElementById("pid").value
+    doc = document.getElementById("doc").value
+    hos = document.getElementById("hos").value
   };
-
   let assessmentArr = useRef([]);
-  if (link !== "http://localhost:3000/hospitalDashboard") {
+  if (link === "http://localhost:3000/hospitalDashboard?covid=100.0?thorax=0.0?normal=0.0"){
+    assessmentArr = getAssessment(hos, doc, emailID, patientID);
+  }else if(link === "http://localhost:3000/hospitalDashboard?covid=0.0?thorax=100.0?normal=0.0"){
+    assessmentArr = getAssessment(hos, doc, emailID, patientID);
+  }else  if(link === "http://localhost:3000/hospitalDashboard?covid=0.0?thorax=0.0?normal=100.0"){
     assessmentArr = getAssessment(hos, doc, emailID, patientID);
   }
+
   const GetR = () => {
     handleClickEvent();
 
     generateReport(emailID, patientID, assessmentArr, hos, doc);
-
-    //GeneratePDF()
   };
 
   return (
@@ -149,9 +160,8 @@ function HospitalDashboard() {
                           <h6 className="mb-0">Name</h6>
                         </div>
                         <div className="col-sm-9 text-secondary">
-                          <input
-                            placeholder={hospital_name}
-                            className="form-control"
+                          <input id="hos" placeholder={hospital_name}
+                                 name={"hos"} className="form-control" value={hospital_name}
                           />
                         </div>
                       </div>
@@ -194,7 +204,7 @@ function HospitalDashboard() {
                         <div className="col-sm-9 text-secondary">
                           <input
                             type="text"
-                            id="emailD"
+                            id="email"
                             name={"email"}
                             className="form-control"
                           />
@@ -214,7 +224,8 @@ function HospitalDashboard() {
                                 </label>
                                 <div id="group1">
                                   <input type="radio" name="group1" />
-                                  <label> {doc_name}</label>
+                                  {/*<label id="doc"> {doc_name}</label>*/}
+                                  <input id="doc" placeholder={doc_name} value={doc_name} />
                                 </div>
                               </div>
                             </div>
@@ -264,5 +275,4 @@ function HospitalDashboard() {
     </div>
   );
 }
-
 export default HospitalDashboard;

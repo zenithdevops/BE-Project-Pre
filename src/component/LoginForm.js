@@ -23,11 +23,11 @@ function LoginForm() {
 
   const redir = () => {
     if (userType === "patient") {
-      window.location.href = "/patientDashboard";
+      window.location.href = "/patientDashboard?email="+email+"?id="+patientID;
     } else if (userType === "doctor") {
-      window.location.href = "/doctorDashboard";
+      window.location.href = "/doctorDashboard?email="+email;
     } else {
-      window.location.href = "/hospitalDashboard";
+      window.location.href = "/hospitalDashboard?email="+email;
     }
   };
 
@@ -113,7 +113,7 @@ function LoginForm() {
           </div>
         </div>
       </div>
-      <div></div>
+      <div/>
 
       <div className="footer">
         <div className="col-sm-3" />

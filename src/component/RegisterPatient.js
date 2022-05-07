@@ -55,10 +55,12 @@ function RegisterPatient() {
       const res = createUserWithEmailAndPassword(auth, email, password);
       console.log(res);
       alert("Welcome to System " + email);
+
     } catch (err) {
       console.error(err);
       alert(err.message);
     }
+    window.location.href="/loginForm"
   };
 
   return (

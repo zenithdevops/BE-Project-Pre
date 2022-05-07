@@ -20,12 +20,17 @@ function getPatientReport() {
 }
 
 function DoctorDashboard() {
+  let m = window.location.href;
+  let param = m.split("?");
+  let paraemail = param[1]
+  let emailD = paraemail.split("=")
+  let email = emailD[1]
   let password = "********";
   let doctor_name = useState("");
   let degree = useState("");
   let experience = useState("");
   let hospital_name = useState("");
-  const email = "amir_khoja@nrca.com";
+  //const email = "amir_khoja@nrca.com"; // arg#1
   const mail = email.split("@");
   const starCountRef = ref(database, "doctorsData/doctorsData/" + mail[0]);
   onValue(starCountRef, (snapshot) => {

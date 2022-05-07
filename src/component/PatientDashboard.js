@@ -19,8 +19,18 @@ function getPatientReport() {
 }
 
 function PatientDashboard() {
+  let m = window.location.href;
+  let param = m.split("?");
+  let paraemail = param[1]
+  let emailD = paraemail.split("=")
+  let paraid = param[2]
+  let pId = paraid.split("=")
+  let patientId = pId[1]
+
+
+  const email = emailD[1]
   let password = "********";
-  let patientId = "110100";
+  //let patientId = "110100"; // arg#1
   let patient_name = useState("");
   let address = useState("");
   let age = useState("");
@@ -28,7 +38,7 @@ function PatientDashboard() {
   let contact = useState("");
   let sex = useState("");
   let patientID = useState("");
-  const email = "advaitthakur1209@gmail.com";
+  //const email = "advaitthakur1209@gmail.com";// arg#2
   const mail = email.split("@");
 
   let patientD = patientId + "_" + mail[0];

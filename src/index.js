@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Route, Link, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, Link, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
@@ -10,22 +10,26 @@ import DoctorDashboard from "./component/DoctorDashboard";
 import HospitalDashboard from "./component/HospitalDashboard";
 import PatientDashboard from "./component/PatientDashboard";
 import MainPage from "./component/MainPage";
+import GenReport from "./component/GetReportCard"
 
 const Routing = () => {
   return (
     <Router>
       <div>
         {/* <AuthContext.Provider value={{auth:value,setValue}} > */}
-        <Switch>
-          <Route exact path="/" component={MainPage} />
-          <Route exact path="/loginForm" component={LoginForm} />
-          <Route path="/registerPatient" component={RegisterPatient} />
-          <Route path="/doctorDashboard" component={DoctorDashboard} />
-          <Route path="/hospitalDashboard" component={HospitalDashboard} />
-          <Route path="/patientDashboard" component={PatientDashboard} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<MainPage/>} exact />
+          <Route path="/loginForm" element={<LoginForm/>} exact />
+          <Route path="/registerPatient" element={<RegisterPatient/>} />
+          <Route path="/doctorDashboard" element={<DoctorDashboard/>} />
+          <Route path="/hospitalDashboard" element={<HospitalDashboard/>} />
+          <Route path="/patientDashboard" element={<PatientDashboard/>} />
+          <Route path="/patientReport" element={<GenReport/>} />
+
+        </Routes>
       </div>
     </Router>
+    //<LoginForm />
   );
 };
 
