@@ -51,15 +51,21 @@ function PatientDashboard() {
         <div className="row">
           <div className="col-lg-4">
             <div className="card">
-              <div className="card-body">
+              <div
+                className="card-body"
+                style={{ boxShadow: "10px 10px 5px rgba(227, 0, 162, 0.2)" }}
+              >
                 <div className="d-flex flex-column align-items-center text-center">
                   <img
-                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                    src="https://cutewallpaper.org/24/patient-png/patient-free-user-icons.png"
                     alt="Admin"
                     className="rounded-circle p-1 bg-primary"
                     width="110"
                   />
-                  <div className="mt-3">
+                  <div
+                    className="mt-3"
+                    style={{ fontFamily: "fantasy", fontWeight: "lighter" }}
+                  >
                     <h4>Patient Dashboard</h4>
                   </div>
                 </div>
@@ -70,94 +76,226 @@ function PatientDashboard() {
             {() => {
               return (
                 <div className="col-lg-8">
-                  <div className="card">
+                  <div
+                    className="card"
+                    style={{
+                      boxShadow: "10px 10px 5px rgba(227, 0, 162, 0.2)",
+                    }}
+                  >
                     <div className="card-body">
                       <div className="row mb-3">
                         <div className="col-sm-3">
-                          <h6 className="mb-0">Patient ID</h6>
+                          <h6
+                            className="mb-0"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
+                          >
+                            Patient ID
+                          </h6>
                         </div>
                         <div className="col-sm-9 text-secondary">
                           <input
                             placeholder={patientID}
                             className="form-control"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
                           />
                         </div>
                       </div>
                       <div className="row mb-3">
                         <div className="col-sm-3">
-                          <h6 className="mb-0">Full Name</h6>
+                          <h6
+                            className="mb-0"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
+                          >
+                            Full Name
+                          </h6>
                         </div>
                         <div className="col-sm-9 text-secondary">
                           <input
                             placeholder={patient_name}
                             className="form-control"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
                           />
                         </div>
                       </div>
                       <div className="row mb-3">
                         <div className="col-sm-3">
-                          <h6 className="mb-0">Email</h6>
+                          <h6
+                            className="mb-0"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
+                          >
+                            Email
+                          </h6>
                         </div>
                         <div className="col-sm-9 text-secondary">
-                          <input placeholder={email} className="form-control" />
+                          <input
+                            placeholder={email}
+                            className="form-control"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
+                          />
                         </div>
                       </div>
                       <div className="row mb-3">
                         <div className="col-sm-3">
-                          <h6 className="mb-0">Contact</h6>
+                          <h6
+                            className="mb-0"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
+                          >
+                            Contact
+                          </h6>
                         </div>
                         <div className="col-sm-9 text-secondary">
                           <input
                             placeholder={contact}
                             className="form-control"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
                           />
                         </div>
                       </div>
                       <div className="row mb-3">
                         <div className="col-sm-3">
-                          <h6 className="mb-0">Blood Group</h6>
+                          <h6
+                            className="mb-0"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
+                          >
+                            Blood Group
+                          </h6>
                         </div>
                         <div className="col-sm-9 text-secondary">
                           <input
                             placeholder={bloodgroup}
                             className="form-control"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
                           />
                         </div>
                       </div>
                       <div className="row mb-3">
                         <div className="col-sm-3">
-                          <h6 className="mb-0">Postal Address</h6>
+                          <h6
+                            className="mb-0"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
+                          >
+                            Postal Address
+                          </h6>
                         </div>
                         <div className="col-sm-9 text-secondary">
                           <input
                             placeholder={address}
                             className="form-control"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
                           />
                         </div>
                       </div>
                       <div className="row mb-3">
                         <div className="col-sm-3">
-                          <h6 className="mb-0">Gender</h6>
+                          <h6
+                            className="mb-0"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
+                          >
+                            Gender
+                          </h6>
                         </div>
                         <div className="col-sm-9 text-secondary">
                           <input
                             type="text"
                             placeholder={sex}
                             className="form-control"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
                           />
                         </div>
                       </div>
                       <div className="row mb-3">
                         <div className="col-sm-3">
-                          <h6 className="mb-0">Age</h6>
+                          <h6
+                            className="mb-0"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
+                          >
+                            Age
+                          </h6>
                         </div>
                         <div className="col-sm-9 text-secondary">
-                          <input placeholder={age} className="form-control" />
+                          <input
+                            placeholder={age}
+                            className="form-control"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
+                          />
                         </div>
                       </div>
                       <div className="row mb-3">
                         <div className="col-sm-3">
-                          <h6 className="mb-0">Report ID</h6>
+                          <h6
+                            className="mb-0"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
+                          >
+                            Report ID
+                          </h6>
                         </div>
                         <div className="col-sm-9 text-secondary">
                           <input
@@ -165,6 +303,11 @@ function PatientDashboard() {
                             className="form-control"
                             required={true}
                             id="pID"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
                           />
                         </div>
                       </div>
@@ -176,6 +319,11 @@ function PatientDashboard() {
                               value="View Report"
                               className="btn btn-primary px-4"
                               onClick={getPatientReport}
+                              style={{
+                                fontFamily: "sans-serif",
+                                fontSize: "20px",
+                                fontWeight: "bolder",
+                              }}
                             />
                           );
                         }}

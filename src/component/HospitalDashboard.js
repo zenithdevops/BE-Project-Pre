@@ -60,7 +60,7 @@ function generateReport(emilID, patientID, arr, hospital_name, doc_name) {
 }
 
 function openStreamlit() {
-  let newPageUrl = "http://localhost:8502/";
+  let newPageUrl = "http://localhost:8501/";
   window.open(newPageUrl, "_blank");
 }
 
@@ -118,20 +118,26 @@ function HospitalDashboard() {
   };
 
   return (
-    <div className="container">
+    <div className="container" style={{ width: "1000px" }}>
       <div className="main-body">
         <div className="row">
           <div className="col-lg-4">
             <div className="card">
-              <div className="card-body">
+              <div
+                className="card-body"
+                style={{ boxShadow: "10px 10px 5px rgba(227, 0, 162, 0.2)" }}
+              >
                 <div className="d-flex flex-column align-items-center text-center">
                   <img
-                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdVb1S8ZcZE2NBJUR-lbo9TMKvvZfRjMwPOw&usqp=CAU"
                     alt="Admin"
                     className="rounded-circle p-1 bg-primary"
                     width="110"
                   />
-                  <div className="mt-3">
+                  <div
+                    className="mt-3"
+                    style={{ fontFamily: "fantasy", fontWeight: "lighter" }}
+                  >
                     <h4>Hospital Dashboard</h4>
                   </div>
                 </div>
@@ -142,41 +148,100 @@ function HospitalDashboard() {
             {() => {
               return (
                 <div className="col-lg-8">
-                  <div className="card">
+                  <div
+                    className="card"
+                    style={{
+                      boxShadow: "10px 10px 5px rgba(227, 0, 162, 0.2)",
+                    }}
+                  >
                     <div className="card-body">
                       <div className="row mb-3">
                         <div className="col-sm-3">
-                          <h6 className="mb-0">Name</h6>
+                          <h6
+                            className="mb-0"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
+                          >
+                            Name
+                          </h6>
                         </div>
                         <div className="col-sm-9 text-secondary">
                           <input
                             placeholder={hospital_name}
                             className="form-control"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
                           />
                         </div>
                       </div>
                       <div className="row mb-3">
                         <div className="col-sm-3">
-                          <h6 className="mb-0">Email</h6>
+                          <h6
+                            className="mb-0"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
+                          >
+                            Email
+                          </h6>
                         </div>
                         <div className="col-sm-9 text-secondary">
-                          <input placeholder={email} className="form-control" />
+                          <input
+                            placeholder={email}
+                            className="form-control"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
+                          />
                         </div>
                       </div>
                       <div className="row mb-3">
                         <div className="col-sm-3">
-                          <h6 className="mb-0">Address</h6>
+                          <h6
+                            className="mb-0"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
+                          >
+                            Address
+                          </h6>
                         </div>
                         <div className="col-sm-9 text-secondary">
                           <input
                             placeholder={address}
                             className="form-control"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
                           />
                         </div>
                       </div>
                       <div className="row mb-3">
                         <div className="col-sm-3">
-                          <h6 className="mb-0">Patient ID</h6>
+                          <h6
+                            className="mb-0"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
+                          >
+                            Patient ID
+                          </h6>
                         </div>
                         <div className="col-sm-9 text-secondary">
                           <input
@@ -184,12 +249,26 @@ function HospitalDashboard() {
                             id="pid"
                             className="form-control"
                             name={"pid"}
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
                           />
                         </div>
                       </div>
                       <div className="row mb-3">
                         <div className="col-sm-3">
-                          <h6 className="mb-0">Patient Email ID</h6>
+                          <h6
+                            className="mb-0"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
+                          >
+                            Patient Email ID
+                          </h6>
                         </div>
                         <div className="col-sm-9 text-secondary">
                           <input
@@ -197,6 +276,11 @@ function HospitalDashboard() {
                             id="emailD"
                             name={"email"}
                             className="form-control"
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "inherit",
+                            }}
                           />
                         </div>
                       </div>
@@ -208,13 +292,35 @@ function HospitalDashboard() {
                                 <label
                                   className="form__label"
                                   htmlFor="usertype"
-                                  style={{ marginLeft: "15px" }}
+                                  style={{
+                                    marginLeft: "15px",
+                                    fontFamily: "sans-serif",
+                                    fontSize: "20px",
+                                    fontWeight: "inherit",
+                                  }}
                                 >
                                   Assign To :
                                 </label>
                                 <div id="group1">
-                                  <input type="radio" name="group1" />
-                                  <label> {doc_name}</label>
+                                  <input
+                                    type="radio"
+                                    name="group1"
+                                    style={{
+                                      fontFamily: "sans-serif",
+                                      fontSize: "20px",
+                                      fontWeight: "inherit",
+                                    }}
+                                  />
+                                  <label
+                                    style={{
+                                      fontFamily: "sans-serif",
+                                      fontSize: "20px",
+                                      fontWeight: "inherit",
+                                    }}
+                                  >
+                                    {" "}
+                                    {doc_name}
+                                  </label>
                                 </div>
                               </div>
                             </div>
@@ -229,21 +335,36 @@ function HospitalDashboard() {
                         >
                           <button
                             onClick={openStreamlit}
-                            style={{ marginLeft: "50px" }}
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "bolder",
+                              marginLeft: "10px",
+                            }}
                             className="btn btn-primary px-4"
                           >
                             Upload XRay
                           </button>
                           <button
                             onClick={GetR}
-                            style={{ marginLeft: "100px" }}
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "bolder",
+                              marginLeft: "10px",
+                            }}
                             className="btn btn-primary px-4"
                           >
                             Generate Report
                           </button>
                           <button
                             onClick={GoAddPatient}
-                            style={{ marginLeft: "100px" }}
+                            style={{
+                              fontFamily: "sans-serif",
+                              fontSize: "20px",
+                              fontWeight: "bolder",
+                              marginLeft: "10px",
+                            }}
                             className="btn btn-primary px-4"
                           >
                             Add Patient
